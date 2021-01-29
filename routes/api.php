@@ -24,7 +24,6 @@ Route::get('provider/{id}',$apiUrl.'ProviderController@show');
 Route::get('provider', $apiUrl.'ProviderController@index');
 Route::post('provider',$apiUrl.'ProviderController@store');
 
-
-
-
-//Route::apiResource($name, $controller)
+//rotas dos serviços
+Route::get('service/provider/{id}',$apiUrl.'ServiceController@showServiceWithProviderId');
+Route::patch('service/updateStatus/{id}', $apiUrl.'ServiceController@updateStatus');
