@@ -27,3 +27,7 @@ Route::post('provider',$apiUrl.'ProviderController@store');
 //rotas dos serviços
 Route::get('service/provider/{id}',$apiUrl.'ServiceController@showServiceWithProviderId');
 Route::patch('service/updateStatus/{id}', $apiUrl.'ServiceController@updateStatus');
+
+//rota das provisões de serviços
+Route::get('serviceProvision',$apiUrl.'ServiceProvisionController@index');
+Route::post('serviceProvision',$apiUrl.'ServiceProvisionController@store');
