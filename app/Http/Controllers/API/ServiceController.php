@@ -28,4 +28,8 @@ class ServiceController extends Controller
 
         return ('ok');
     }
+
+    public function filterByName($name) {
+        return Service::where('name', '=', $name)->first();
+    }
 }

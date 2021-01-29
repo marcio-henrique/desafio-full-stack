@@ -45,4 +45,8 @@ class ProviderController extends Controller
         return response()->json("success");
     }
 
+    public function filterByName($name) {
+        return Provider::where('name', '=', $name)->first();
+    }
+
 }
