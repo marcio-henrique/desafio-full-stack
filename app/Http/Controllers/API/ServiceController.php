@@ -16,4 +16,16 @@ class ServiceController extends Controller
             Service::create($service, $providerId);
         }
     }
+
+    public function showServiceWithProviderId($providerId) {
+        return Service::where('provider_id', '=', $providerId)->orderBy('name', 'asc')->paginate(5);
+    }
+
+    public function updateStatus(Request $request, $id) {
+        $service = Service::find($id);
+        $service->status = $request['status'];
+        $service->save();
+
+        return ('ok');
+    }
 }
