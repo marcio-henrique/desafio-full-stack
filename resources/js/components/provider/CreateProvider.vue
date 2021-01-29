@@ -36,7 +36,7 @@
                             <label class="form-check-label" for="inlineRadio2">CNPJ</label>
                         </div>
                         <div class="col-sm-10">
-                            <input v-mask="getOfficialDocumentMask(officialDocument.type)" v-model="officialDocument.number" required :disabled="officialDocument.type === ''" type="text" class="form-control" id="officialDocumentNumber" placeholder="Digite o número do documento" name="phone">
+                            <input v-mask="getOfficialDocumentMask(officialDocument.type)" v-model="officialDocument.number" minlength="5" required :disabled="officialDocument.type === ''" type="text" class="form-control" id="officialDocumentNumber" placeholder="Digite o número do documento" name="phone">
                         </div>
                     </div>
 
@@ -74,7 +74,7 @@
 
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <button type="submit" class="btn btn-default">Salvar</button>
                         </div>
                     </div>
             </form>
@@ -84,9 +84,6 @@
 
 <script>
 import maskMixin from "../../mixins/maskMixin";
-import {FormWizard, TabContent} from 'vue-form-wizard';
-import 'vue-form-wizard/dist/vue-form-wizard.min.css';
-
 
 export default {
     name: "CreateProvider",
@@ -130,6 +127,7 @@ export default {
         dataSend(formData) {
             this.$http.post('/api/provider', formData).then((response) => {
                 console.log(response.success);
+                this.$router.go({ name: 'ListProvider' });
             }).catch((error) => {
                 console.log(error);
             });
