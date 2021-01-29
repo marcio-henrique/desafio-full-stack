@@ -16,7 +16,7 @@ class CreateOfficialDocumentsTable extends Migration
         Schema::create('official_documents', function (Blueprint $table) {
             $table->id();
             $table->enum('type', ['CPF', 'CNPJ']);
-            $table->integer('number');
+            $table->bigInteger('number');
             $table->timestamps();
         });
     }
