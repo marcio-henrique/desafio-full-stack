@@ -12,7 +12,11 @@ use Illuminate\Http\Request;
 class ProviderController extends Controller
 {
     public function index () {
-        return Provider::with('officialDocument')->paginate(10);
+        return Provider::with('officialDocument')->orderBy('name', 'asc')->paginate(10);
+    }
+
+    public function show($id) {
+        return Provider::with('officialDocument')->get()->find($id);
     }
 
     public function store (Request $request): \Illuminate\Http\JsonResponse
