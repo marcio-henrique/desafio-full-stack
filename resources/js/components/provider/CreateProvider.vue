@@ -4,7 +4,7 @@
             <form @submit.prevent="createProvider" method="post" id="contact_form">
                 <div>
                     <div id="message" class="alert alert-danger alert-dismissible fade"></div>
-                    <h3>Cadastro do Fornecedor</h3>
+                    <h3>Cadastro do Provedor</h3>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="name">Nome*:</label>
                         <div class="col-sm-10">
@@ -69,12 +69,12 @@
                         <span class="input-group-append"><a href="#" @click="removeServiceRow(id)" class="btn btn-danger">X</a></span>
                     </div>
                     <div class="input-group col-sm-10">
-                        <a href="#" @click="addServiceRow" class="btn btn-primary">Adicionar Serviço</a>
+                        <a href="#" @click="addServiceRow" class="btn btn-default">Adicionar Serviço</a>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group row">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">Salvar</button>
+                            <button type="submit" class="btn btn-success">Salvar</button>
                         </div>
                     </div>
             </form>
@@ -127,7 +127,7 @@ export default {
         dataSend(formData) {
             this.$http.post('/api/provider', formData).then((response) => {
                 console.log(response.success);
-                this.$router.go({ name: 'ListProvider' });
+                this.$router.push({ name: 'ListProvider' });
             }).catch((error) => {
                 console.log(error);
             });
