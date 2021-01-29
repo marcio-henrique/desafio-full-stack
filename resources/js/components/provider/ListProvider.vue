@@ -23,17 +23,7 @@
                         <th>{{provider.official_document.type }}</th>
                         <th>{{provider.official_document.number | VMask(getOfficialDocumentMask(provider.official_document.type))}}</th>
                         <th>
-                            <ul >
-                                <li class="list-inline-item">
-                                    <router-link :to="{name: 'ShowProvider', params:{id: provider.id}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Visualizar"><i class="fa fa-table"></i></router-link>
-                                </li>
-                                <li class="list-inline-item">
-                                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-edit"></i></button>
-                                </li>
-                                <li class="list-inline-item">
-                                    <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Excluir"><i class="fa fa-trash"></i></button>
-                                </li>
-                            </ul>
+                            <router-link :to="{name: 'ShowProvider', params:{id: provider.id}}" class="btn btn-primary btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Visualizar">Visualizar</router-link>
                         </th>
                     </tr>
                 </tbody>
